@@ -2,9 +2,10 @@ package com.fy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@EnableEurekaClient //将服务注册到服务中心上
+
+@EnableFeignClients
 @SpringBootApplication
 public class BackstageServerApplication {
 
