@@ -18,7 +18,7 @@
         function selelctlist(){
             //查询信息展示
             $('#dg').datagrid({
-                url:'/housrent/selectLease',
+                url:'/getOrderList',
                 method:"GET",
                 fitColumns:true,
                 pagination:true,
@@ -27,13 +27,13 @@
                 pageSize:10,
                 pageList:[2,10,30,40,50],
                 columns:[[
-                    {field:'leaseId',title:'出租业绩编号',width:50},
-                    {field:'cusId',title:'用户编号',width:80},
-                    {field:'rentId',title:'出租房源编号',width:60},
-                    {field:'leasePrice',title:'成交金额',width:100},
-                    {field:'leaseMediation',title:'中介费',width:100},
-                    {field:'leaseYaprice',title:'押金',width:80},
-                    {field:'leaseNote',title:'备注',width:120}
+                    {field:'orderConId',title:'订单编号',width:50},
+                    {field:'orderChildShop',title:'支付时间',width:50},
+                    {field:'orderTotalPrices',title:'总价',width:50},
+                    {field:'orderChildAmout',title:'单项总金额',width:50},
+                    {field:'orederCount',title:'数量',width:50},
+                    {field:'orderSpotsStatus',title:'交易状态',width:50},
+                    {field:'orderRemark',title:'备注',width:50}
                 ]],
                 toolbar: [{
                     text:"修改出租单",
@@ -74,8 +74,8 @@
                         }
                         $.ajax({
                             type:"GET",
-                            url:"/housrent/deleteLease",
-                            data:{"id":s.leaseId},
+                            url:"/deleteOrder",
+                            data:{"id":s.orderConId},
                             dataType:"json",
                             success:function () {
 
