@@ -1,13 +1,13 @@
 <html>
 <head>
     <title>租赁信息管理</title>
-    <link rel="stylesheet" href="/order/jquery-easyui/themes/default/easyui.css">
-    <link rel="stylesheet" href="/order/jquery-easyui/themes/icon.css">
-    <script type="text/javascript" src="/order/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="/order/jquery-easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="/order/jquery-easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="/order/jquery-easyui/easyui-lang-zh_CN.js"></script>
-    <script type="text/javascript" src="/order/dialog/dialog-plus.js"></script>
+    <link rel="stylesheet" href="/commons/jquery-easyui/themes/default/easyui.css">
+    <link rel="stylesheet" href="/commons/jquery-easyui/themes/icon.css">
+    <script type="text/javascript" src="/commons/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/commons/jquery-easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/commons/jquery-easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/commons/jquery-easyui/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/commons/dialog/dialog-plus.js"></script>
 </head>
 <body>
 <table id="dg"></table>

@@ -12,7 +12,7 @@ public class BackController {
     @RequestMapping("tolist")
     public ModelAndView toList(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/backstage/order/orderList");
+        mv.setViewName("/backstage/commons/orderList");
         return mv;
     }
 }

@@ -98,7 +98,7 @@ public class Skip {
      */
     @RequestMapping("stopsOrder")
     public ModelAndView stopsOrder(){
-        ModelAndView mav = new ModelAndView("backstage/order/stopsOrder");
+        ModelAndView mav = new ModelAndView("backstage/commons/stopsOrder");
         return mav;
     }
 
@@ -108,7 +108,7 @@ public class Skip {
      */
     @RequestMapping("itemOrder")
     public ModelAndView itemOrder(){
-        ModelAndView mav = new ModelAndView("backstage/order/itemOrder");
+        ModelAndView mav = new ModelAndView("backstage/commons/itemOrder");
         return mav;
     }
 
