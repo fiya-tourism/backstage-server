@@ -30,8 +30,8 @@
             <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报表总览</dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旅游报表</a></li>
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品报表</a></li>
+                    <li><a href="javascript:openFtl('spotsEcharts');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旅游报表</a></li>
+                    <li><a href="javascript:openFtl('itemEcharts');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品报表</a></li>
                 </ul>
             </dd>
         </dl>
@@ -39,9 +39,9 @@
             <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旅游管理</dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点发布</a></li>
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点列表</a></li>
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点评价</a></li>
+                    <li><a href="javascript:openFtl('addSpots');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点发布</a></li>
+                    <li><a href="javascript:openFtl('spotsList');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点列表</a></li>
+                    <li><a href="javascript:openFtl('spotsComment');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点评价</a></li>
                 </ul>
             </dd>
         </dl>
@@ -50,9 +50,9 @@
             <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品管理</dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品发布</a></li>
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品列表</a></li>
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品评价</a></li>
+                    <li><a href="javascript:openFtl('addItem');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品发布</a></li>
+                    <li><a href="javascript:openFtl('itemList');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品列表</a></li>
+                    <li><a href="javascript:openFtl('itemComment');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品评价</a></li>
                 </ul>
             </dd>
         </dl>
@@ -60,8 +60,8 @@
             <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单管理</dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旅游订单</a></li>
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品订单</a></li>
+                    <li><a href="javascript:openFtl('stopsOrder');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旅游订单</a></li>
+                    <li><a href="javascript:openFtl('itemOrder');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品订单</a></li>
                 </ul>
             </dd>
         </dl>
@@ -69,7 +69,7 @@
             <dt><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffffe0">用户管理</font></a></dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户列表</a></li>
+                    <li><a href="javascript:openFtl('userList');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户列表</a></li>
                 </ul>
             </dd>
         </dl>
@@ -77,8 +77,8 @@
             <dt><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffffe0">游记管理</font></a></dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;游记列表</a></li>
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;游记评论</a></li>
+                    <li><a href="javascript:openFtl('travelsList');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;游记列表</a></li>
+                    <li><a href="javascript:openFtl('travelsComment');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;游记评论</a></li>
                 </ul>
             </dd>
         </dl>
@@ -87,7 +87,7 @@
             <dt><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#ffffe0">员工管理</font></a></dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员工列表</a></li>
+                    <li><a href="javascript:openFtl('staffList');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;员工列表</a></li>
                 </ul>
             </dd>
         </dl>
@@ -197,7 +197,7 @@
 </div>
 <!-- 左边导航结束 -->
 <div class="rightmain" id="rightmain">
-    <div class="rightcontent">
+    <div class="rightcontent" id="rightcontent">
 
     </div>
 </div>
@@ -267,6 +267,13 @@
         $(this).parents('dl').siblings().find('dd ul li a').removeClass('current-menuleft');
 
     });
+
+    function openFtl(url){
+        $.get(url,function(data){
+            $("#rightcontent").html(data);
+        },"html")
+    }
+
 
 </script>
 </body>
