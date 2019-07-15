@@ -11,6 +11,7 @@
 </head>
 <body>
 <table id="dg"></table>
+<div id="xuzhen"></div>
 <script>
     var s = null;
     $(function () {
@@ -47,7 +48,7 @@
                             title: '修改出租单',
                             width: 470,
                             height: 280,
-                            href: '/housrent/toupdate',
+                            href: '/toupdate',
                             modal: true,
                             buttons:[{
                                 text:'保存',
@@ -103,7 +104,7 @@
     function updates() {
         $.messager.progress();	// 显示进度条
         $('#ff').form('submit', {
-            url: "/housrent/leaseUpdate",
+            url: "/orderUpdate",
             onSubmit: function(data){
                 var isValid = $(this).form('validate');
                 if (!isValid){
