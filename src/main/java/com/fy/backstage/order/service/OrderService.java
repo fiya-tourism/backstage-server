@@ -4,6 +4,7 @@ import com.fy.backstage.order.entity.Order;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,5 +17,5 @@ public interface OrderService {
     List<Order> getOrderList();
 
     @RequestMapping(value = "deleteOrder",method = RequestMethod.DELETE)
-    void deleteOrder(String id);
+    void deleteOrder(@RequestParam("id") String id);
 }
