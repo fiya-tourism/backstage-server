@@ -35,6 +35,7 @@ public class UserController {
     @ResponseBody
     public String delete(Integer id){
          userService.delete(id);
+         //test
         return "删除成功";
     }
 }
