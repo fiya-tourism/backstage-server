@@ -1,7 +1,10 @@
 package com.fy.backstage.user.controller;
 
+import com.fy.backstage.commons.DataGridUtil;
+import com.fy.backstage.commons.ResultVO;
 import com.fy.backstage.user.entity.UserVO;
 import com.fy.backstage.user.service.UserService;
+import feign.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +18,7 @@ import java.util.List;
  * @desc
  **/
 @Controller
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
@@ -22,8 +26,15 @@ public class UserController {
 
     @RequestMapping("queryUserList")
     @ResponseBody
-    public List<UserVO> queryUserList(){
-        List<UserVO> list = userService.queryUserList();
-        return list;
+    public DataGridUtil<UserVO> queryUserList(){
+        return  userService.queryUserList();
+    }
+
+
+    @RequestMapping("delete")
+    @ResponseBody
+    public String delete(Integer id){
+         userService.delete(id);
+        return "删除成功";
     }
 }
