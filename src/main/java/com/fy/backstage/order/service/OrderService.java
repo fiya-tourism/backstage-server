@@ -18,5 +18,5 @@ public interface OrderService {
 
     @RequestMapping(value = "deleteOrder",method = RequestMethod.DELETE)
     void deleteOrder(@RequestParam("id") String id);
-    
+
 }
