@@ -36,9 +36,57 @@
         <a href="javascript:toUpdate();" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">修改</a>
         <!-- 删除-->
         <a href="javascript:deleteUser();" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
+        <!-- 添加 -->
+        <a href="javascript:toAdd();" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true"></a>
     </div>
 
+    <!-- 添加弹框 -->
+    <div id="toAdd" class="easyui-dialog" title="添加" style="width:400px;height:200px;"
+         data-options="buttons:'#addInfo',iconCls:'icon-save',resizable:true,modal:true,closed:true,href:'userAdd.ftl'">
+    </div>
+    <!-- 修改弹框按钮 -->
+    <div id="bb">
+        <a href="javascript:updateInfo()" class="easyui-linkbutton">修改</a>
+        <a href="javascript:closeDd();" class="easyui-linkbutton">关闭</a>
+    </div>
     <script type="text/javascript">
+
+        /* 打开弹框 */
+        function toAdd(){
+            /* 打开界面 */
+            $("#toAdd").dialog('open');
+        }
+
+        function addInfo(){
+            $.ajax({
+                type:'post',
+                async:false,
+                url:'/user/add',
+                data:$("#insert_form").serialize()
+            })
+            /* 使用form组件 提供的方法进行提交 */
+            $("#insert_form").form('submit',{
+                onSubmit:function(){
+                    var isValid = $(this).form('validate');
+                    return isValid;;
+                },
+                success:function(data){
+                    /* 关闭dialog */
+                    $("#wu").datagrid("reload");
+                    $("#toAdd").dialog("close");
+                }
+            })
+
+            /* 关闭dialog */
+            $("#wu").datagrid("reload");
+            $("#toAdd").dialog("close");
+        }
+
+
+        function closeAdd(){
+            $("#toAdd").dialog("close");
+            $("#insert_form").form("clear");
+        }
 
         function deleteUser() {
             var row = $('#wu').datagrid('getSelected');
