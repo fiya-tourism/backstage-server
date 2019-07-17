@@ -1,5 +1,6 @@
 package com.fy.backstage.user.controller;
 
+import com.fy.backstage.commons.DataGrid;
 import com.fy.backstage.user.entity.UserVO;
 import com.fy.backstage.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class UserController {
 
     @RequestMapping("queryUserList")
     @ResponseBody
-    public DataGridUtil<UserVO> queryUserList(){
+    public DataGrid<UserVO> queryUserList(){
         return  userService.queryUserList();
     }
 

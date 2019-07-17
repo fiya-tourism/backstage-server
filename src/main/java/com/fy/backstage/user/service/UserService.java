@@ -1,6 +1,6 @@
 package com.fy.backstage.user.service;
 
-import com.fy.backstage.commons.ResultVO;
+import com.fy.backstage.commons.DataGrid;
 import com.fy.backstage.user.entity.UserVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "USER-SERVER")
 public interface UserService {
     @RequestMapping(value="user/queryUserList",method = RequestMethod.GET)
-    DataGridUtil<UserVO> queryUserList();
+    DataGrid<UserVO> queryUserList();
 
     @RequestMapping(value="user/delete",method = RequestMethod.GET)
     void delete(@RequestParam("id") Integer id);
