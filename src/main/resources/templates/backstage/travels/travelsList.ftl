@@ -40,35 +40,6 @@
                     {field:'travelsCreate',title:'新增时间',width:50}
                 ]],
                 toolbar: [{
-                    /*text:"查看详情",
-                    iconCls: 'icon-edit',
-                    handler: function(){
-                        s = $("#dg").datagrid('getSelected');
-                        if (s==null){
-                            return alert("请选择要编辑的出租单！！");
-                        }
-                        $('#xuzhen').dialog({
-                            title: '不通过',
-                            width: 470,
-                            height: 280,
-                            href: '/housrent/toupdate',
-                            modal: true,
-                            buttons:[{
-                                text:'保存',
-                                handler:function(){
-                                    updates()
-                                    $("#dg").datagrid('reload');
-                                }
-                            },{
-                                text:'关闭',
-                                handler:function(){
-                                    $("#xuzhen").dialog('close');
-                                }
-                            }]
-                        });
-
-                    }*/
-                },'-',{
                     text:"不通过",
                     iconCls: 'icon-no',
                     handler: function(){
