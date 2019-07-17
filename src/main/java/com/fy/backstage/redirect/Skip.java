@@ -18,7 +18,7 @@ public class Skip {
      */
     @RequestMapping("spotsEcharts")
     public ModelAndView spotsEcharts(){
-        ModelAndView mav = new ModelAndView("backstage/stops/spotsEcharts");
+        ModelAndView mav = new ModelAndView("backstage/spot/spotsEcharts");
         return mav;
     }
 
@@ -38,7 +38,7 @@ public class Skip {
      */
     @RequestMapping("addSpots")
     public ModelAndView addSpots(){
-        ModelAndView mav = new ModelAndView("backstage/stops/addSpots");
+        ModelAndView mav = new ModelAndView("backstage/spot/addSpots");
         return mav;
     }
 
@@ -48,7 +48,7 @@ public class Skip {
      */
     @RequestMapping("spotsList")
     public ModelAndView spotsList(){
-        ModelAndView mav = new ModelAndView("backstage/stops/spotsList");
+        ModelAndView mav = new ModelAndView("backstage/spot/spotsList");
         return mav;
     }
 
@@ -58,7 +58,7 @@ public class Skip {
      */
     @RequestMapping("spotsComment")
     public ModelAndView spotsComment(){
-        ModelAndView mav = new ModelAndView("backstage/stops/spotsComment");
+        ModelAndView mav = new ModelAndView("backstage/spot/spotsComment");
         return mav;
     }
 
