@@ -1,6 +1,6 @@
-package com.fy.backstage.commons;
+package com.fy.backstage.travels.util;
 
-public class ResultVO {
+public class ResultMsg {
 
 	private Boolean success=true;
 	private String msg;
