@@ -1,6 +1,7 @@
 package com.fy.backstage.item.controller;
 
 import com.fy.backstage.commons.DataGrid;
+import com.fy.backstage.commons.PageUtils;
 import com.fy.backstage.commons.ResultVo;
 import com.fy.backstage.commons.UpFile;
 import com.fy.backstage.item.domain.ItemAllVo;
@@ -45,7 +46,7 @@ public class ItemController {
      * @return
      */
     @RequestMapping("queryList")
-    public DataGrid queryItemList(PageUtil pageUtil){
+    public DataGrid queryItemList(PageUtils pageUtil){
         DataGrid dataGrid = itemServiceFeigh.queryItemList(pageUtil);
         return dataGrid;
     }
