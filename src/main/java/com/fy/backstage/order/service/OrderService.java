@@ -13,10 +13,13 @@ import java.util.List;
  */
 @FeignClient(value = "orderser")
 public interface OrderService {
+    //查询旅游订单
     @RequestMapping(value = "getOrderList",method = RequestMethod.GET)
     List<Order> getOrderList();
-
+    //删除旅游订单
     @RequestMapping(value = "deleteOrder",method = RequestMethod.DELETE)
     void deleteOrder(@RequestParam("id") String id);
-
+    //根据订单号查询数据
+    @RequestMapping(value = "selectByOrderId",method = RequestMethod.GET)
+    Order selectByOrderId(String conId);
 }
