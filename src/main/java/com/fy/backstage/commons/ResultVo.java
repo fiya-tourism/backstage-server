@@ -1,6 +1,6 @@
 package com.fy.backstage.commons;
 
-public class ResultVO {
+public class ResultVo {
 
 	private Boolean success=true;
 	private String msg;

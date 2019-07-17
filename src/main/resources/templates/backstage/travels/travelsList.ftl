@@ -99,37 +99,10 @@
                         });
 
                     }
-                },'-',{
-                    iconCls: 'icon-search',
-                    text:"搜索",
-                    handler: function(){
-
-                    }
                 }]
 
             });
         }
     });
-    function updates() {
-        $.messager.progress();	// 显示进度条
-        $('#ff').form('submit', {
-            url: "/housrent/leaseUpdate",
-            onSubmit: function(data){
-                var isValid = $(this).form('validate');
-                if (!isValid){
-                    $.messager.progress('close');	// 如果表单是无效的则隐藏进度条
-                }
-                return isValid;	// 返回false终止表单提交
-            },
-            success: function(){
-                alert("提交成功！！");
-                $.messager.progress('close');	// 如果提交成功则隐藏进度条
-                $("#xuzhen").dialog('close');
-                $("#dg").datagrid('reload');
-            }
-        });
-
-    }
-
 </script>
 </html>
