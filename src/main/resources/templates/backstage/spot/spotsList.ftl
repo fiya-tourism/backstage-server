@@ -121,7 +121,6 @@
                 return isValid;	// 返回false终止表单提交
             },
             success: function(data){
-                console.log(data);
                 if (1==data){
                     alert("修改成功");
                 } else {

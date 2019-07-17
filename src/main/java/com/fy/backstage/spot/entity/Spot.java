@@ -36,8 +36,8 @@ public class Spot {
     //资讯电话
     private String spotsPhone;
     //开放时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd" ,timezone = "GTM")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GTM")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date spotsOpenTime;
     //景点门票库存
     private Integer spotsRepertory;
@@ -46,20 +46,20 @@ public class Spot {
     //集合地点
     private String spotsVenue;
     //出发时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd" ,timezone = "GTM")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GTM")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date spotsGotime;
     //发布时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd" ,timezone = "GTM")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GTM")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date spotsRelease;
     //创建时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd" ,timezone = "GTM")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GTM")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date spotsCreate;
     //修改时间
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:dd" ,timezone = "GTM")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GTM")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date spotsUpdate;
     //状态
     private Integer spotsYn;
