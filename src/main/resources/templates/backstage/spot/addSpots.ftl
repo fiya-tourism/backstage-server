@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/js/wangEditor.min.js"></script>
 </head>
 <body>
 <form id="ff" method="post">
@@ -18,6 +19,9 @@
     <div>
         <label for="name">景点介绍:</label>
         <input  type="text" name="conentisert"/>
+        <div >
+
+        </div>
     </div>
     <div>
         <label for="name">景点地址:</label>
@@ -79,7 +83,17 @@
         }else {
             $("#buttonId").after("<input type='submit'>")
         }
-    })
+    });
+
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    //设置上传的参数名
+    editor.customConfig.uploadFileName = 'file';
+    // 上传图片到服务器
+    editor.customConfig.uploadImgServer = '/upload'
+    // 将图片大小限制为 10M
+    editor.customConfig.uploadImgMaxSize = 10 * 1024 * 1024;
+    editor.create();
 </script>
 </body>
 </html>

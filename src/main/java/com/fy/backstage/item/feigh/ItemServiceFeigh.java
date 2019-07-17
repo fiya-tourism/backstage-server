@@ -1,7 +1,7 @@
 package com.fy.backstage.item.feigh;
 
 import com.fy.backstage.commons.DataGrid;
-import com.fy.backstage.commons.PageUtil;
+import com.fy.backstage.commons.PageUtils;
 import com.fy.backstage.commons.ResultVo;
 import com.fy.backstage.item.domain.ItemAllVo;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -18,5 +18,5 @@ public interface ItemServiceFeigh {
     ResultVo insertItem(@RequestBody ItemAllVo itemAllVo);
 
     @RequestMapping(value="item/queryList",method = RequestMethod.POST)
-    DataGrid queryItemList(@RequestBody PageUtil pageUtil);
+    DataGrid queryItemList(@RequestBody PageUtils pageUtil);
 }

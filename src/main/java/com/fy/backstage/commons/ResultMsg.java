@@ -1,4 +1,4 @@
-package com.fy.backstage.travels.util;
+package com.fy.backstage.commons;
 
 public class ResultMsg {
 

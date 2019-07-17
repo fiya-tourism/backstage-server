@@ -1,9 +1,7 @@
 package com.fy.backstage.travels.service;
 
 import com.fy.backstage.travels.domain.Travel;
-import com.fy.backstage.travels.util.DataGridVo;
-import com.fy.backstage.travels.util.Page;
-import com.fy.backstage.travels.util.ResultMsg;
+import com.fy.backstage.commons.ResultMsg;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
