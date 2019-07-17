@@ -23,4 +23,7 @@ public interface UserService {
 
     @RequestMapping(value="user/delete",method = RequestMethod.GET)
     void delete(@RequestParam("id") Integer id);
+
+    @RequestMapping(value="user/add",method = RequestMethod.POST)
+    String add(@RequestBody UserVO userVO);
 }

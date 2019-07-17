@@ -36,4 +36,11 @@ public class UserController {
          //test
         return "删除成功";
     }
+
+    @RequestMapping("add")
+    @ResponseBody
+    public String add(UserVO userVO){
+        return userService.add(userVO);
+    }
+
 }
