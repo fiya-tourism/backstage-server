@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form id="ff" method="post" type="">
+<form id="ff" method="post">
     <input  type="hidden" name="spotsId" data-options="required:true" />
     <div>
         <label for="name">景点名称:</label>
