@@ -28,7 +28,7 @@
                 pageSize:5,
                 pageList:[2,5,12,20],
                 columns:[[
-                    {field:'travelsId',title:'订单编号',width:50},
+                    {field:'travelsId',title:'游记Id',width:50},
                     {field:'travelsUserId',title:'用户Id',width:50},
                     {field:'travelsContentId',title:'合并展示',width:50},
                     {field:'travelsTitle',title:'标题',width:50},
@@ -69,16 +69,16 @@
 
                     }*/
                 },'-',{
-                    text:"bu通过",
+                    text:"不通过",
                     iconCls: 'icon-no',
                     handler: function(){
 
                         s = $("#dg").datagrid("getSelected");
                         if(s==null){
-                            $.messager.alert("提示","请选择一行进行删除");
+                            $.messager.alert("提示","请选择一行进行审核");
                             return;
                         }
-                        $.messager.confirm('删除提示', '你确定要删除数据吗？', function(r){
+                        $.messager.confirm('删除提示', '确定不通过数据吗？', function(r){
                             if (r){
                                 $.ajax({
                                     url:'/tr/delTravel',
