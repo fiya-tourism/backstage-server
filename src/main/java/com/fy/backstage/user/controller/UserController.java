@@ -1,6 +1,5 @@
 package com.fy.backstage.user.controller;
 
-import com.fy.backstage.commons.DataGridUtil;
 import com.fy.backstage.user.entity.UserVO;
 import com.fy.backstage.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 /**
  * @author 武豫

@@ -1,22 +1,18 @@
-package com.fy.backstage.travels.util;
+package com.fy.backstage.commons;
 
+
+import java.io.Serializable;
 import java.util.List;
 
-public class DataGridVo<T> {
+/**
+ * 返回DataGrid类型数据
+ * @param <T>
+ */
+public class DataGrid<T> implements Serializable {
 	
 	private Long total;
 	
 	private List<T> rows;
-	
-	public DataGridVo() {
-		super();
-	}
-
-	public DataGridVo(Long total, List<T> rows) {
-		super();
-		this.total = total;
-		this.rows = rows;
-	}
 
 	public Long getTotal() {
 		return total;
@@ -33,6 +29,12 @@ public class DataGridVo<T> {
 	public void setRows(List<T> rows) {
 		this.rows = rows;
 	}
-	
 
+	public DataGrid() {
+	}
+
+	public DataGrid(Long total, List<T> rows) {
+		this.total = total;
+		this.rows = rows;
+	}
 }

@@ -2994,7 +2994,7 @@ SVGElement.prototype = {
 			wrapper.clipPath = wrapper.clipPath.destroy();
 		}
 
-		// Destroy stops in case this is a gradient object
+		// Destroy spot in case this is a gradient object
 		if (wrapper.stops) {
 			for (i = 0; i < wrapper.stops.length; i++) {
 				wrapper.stops[i] = wrapper.stops[i].destroy();
@@ -3994,7 +3994,7 @@ SVGRenderer.prototype = {
 					.add(renderer.defs);
 
 
-				// The gradient needs to keep a list of stops to be able to destroy them
+				// The gradient needs to keep a list of spot to be able to destroy them
 				gradientObject.stops = [];
 				each(stops, function (stop) {
 					var stopObject;
@@ -5260,7 +5260,7 @@ var VMLRendererExtension = { // inherit SVGRenderer
 				]);
 			}
 
-			// Compute the stops
+			// Compute the spot
 			each(stops, function (stop, i) {
 				if (regexRgba.test(stop[1])) {
 					colorObject = Color(stop[1]);

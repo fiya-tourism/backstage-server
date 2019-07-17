@@ -1,9 +1,9 @@
 package com.fy.backstage.travels.service;
 
+import com.fy.backstage.commons.DataGrid;
+import com.fy.backstage.commons.PageUtils;
 import com.fy.backstage.travels.domain.Travel;
-import com.fy.backstage.travels.util.DataGridVo;
-import com.fy.backstage.travels.util.Page;
-import com.fy.backstage.travels.util.ResultMsg;
+import com.fy.backstage.commons.ResultMsg;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ public interface TravelsService {
 
 
     @RequestMapping(value = "/travels/selTr", method = RequestMethod.POST)
-    public DataGridVo selTr(@RequestBody Page page);
+    public DataGrid selTr(@RequestBody PageUtils page);
 
     @RequestMapping(value = "travles/insertTravel", method = RequestMethod.GET,params = "application/json; charset=UTF-8")
     public void insertTravel();

@@ -1,15 +1,13 @@
 package com.fy.backstage.travels.controller;
 
+import com.fy.backstage.commons.DataGrid;
+import com.fy.backstage.commons.PageUtils;
 import com.fy.backstage.travels.domain.Travel;
 import com.fy.backstage.travels.service.TravelsService;
-import com.fy.backstage.travels.util.DataGridVo;
-import com.fy.backstage.travels.util.Page;
-import com.fy.backstage.travels.util.ResultMsg;
+import com.fy.backstage.commons.ResultMsg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("tr")
@@ -20,8 +18,8 @@ public class TravelsController {
 
     @RequestMapping("selTrael")
     @ResponseBody
-    public DataGridVo selTrael(Page page){
-        DataGridVo list = travelsService.selTr(page);
+    public DataGrid selTrael(PageUtils page){
+        DataGrid list = travelsService.selTr(page);
         return list;
     }
     @ResponseBody
