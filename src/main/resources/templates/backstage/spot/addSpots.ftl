@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="/js/wangEditor.min.js"></script>
+    <script src="/commons/wangEditor.min.js"></script>
 </head>
 <body>
 <form id="ff" method="post">

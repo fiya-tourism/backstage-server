@@ -1,7 +1,7 @@
 package com.fy.backstage.spot.controller;
 
 import com.fy.backstage.commons.DataGrid;
-import com.fy.backstage.order.utils.Page;
+import com.fy.backstage.commons.PageUtils;
 import com.fy.backstage.spot.entity.Spot;
 import com.fy.backstage.spot.service.SpotService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class SpotController {
 
     @ResponseBody
     @RequestMapping("spotselect")
-    public DataGrid<Spot> spotselect(Page page){
+    public DataGrid<Spot> spotselect(PageUtils page){
         DataGrid<Spot> spotselect = spotService.spotselect(page);
         return spotselect;
     }
