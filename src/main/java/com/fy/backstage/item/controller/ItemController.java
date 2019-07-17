@@ -2,10 +2,10 @@ package com.fy.backstage.item.controller;
 
 import com.fy.backstage.commons.DataGrid;
 import com.fy.backstage.commons.PageUtil;
+import com.fy.backstage.commons.ResultVo;
 import com.fy.backstage.commons.UpFile;
 import com.fy.backstage.item.domain.ItemAllVo;
 import com.fy.backstage.item.feigh.ItemServiceFeigh;
-import com.fy.backstage.travels.util.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
