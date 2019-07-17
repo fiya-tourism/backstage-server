@@ -55,7 +55,6 @@ public class SpotController {
     @RequestMapping("spotinsert")
     public Integer spotinsert(Spot spot){
         return spotService.spotinsert(spot);
-
     }
 
 
