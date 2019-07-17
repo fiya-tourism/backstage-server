@@ -41,9 +41,16 @@
     </div>
 
     <!-- 添加弹框 -->
-    <div id="toAdd" class="easyui-dialog" title="添加" style="width:400px;height:200px;"
-         data-options="buttons:'#addInfo',iconCls:'icon-save',resizable:true,modal:true,closed:true,href:'userAdd.ftl'">
+    <div id="toAdd" class="easyui-dialog" title="添加" style="width:800px;height:400px;"
+         data-options="buttons:'#addInfo',iconCls:'icon-save',resizable:true,modal:true,closed:true,href:'/user/toAdd'">
     </div>
+
+    <!-- 添加弹框按钮-->
+    <div id="addInfo">
+        <a href="javascript:addInfo()" class="easyui-linkbutton">添加</a>
+        <a href="javascript:closeAdd();" class="easyui-linkbutton">关闭</a>
+    </div>
+
     <!-- 修改弹框按钮 -->
     <div id="bb">
         <a href="javascript:updateInfo()" class="easyui-linkbutton">修改</a>
@@ -87,7 +94,7 @@
             $("#toAdd").dialog("close");
             $("#insert_form").form("clear");
         }
-
+        /*逻辑删除*/
         function deleteUser() {
             var row = $('#wu').datagrid('getSelected');
             if(row!=null){
