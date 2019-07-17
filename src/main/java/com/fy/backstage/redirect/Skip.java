@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by monst on 2019/7/15.
  */
 @RestController
-@RequestMapping()
+@RequestMapping("skip")
 public class Skip {
 
     /**
