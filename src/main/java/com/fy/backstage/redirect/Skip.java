@@ -108,7 +108,7 @@ public class Skip {
      */
     @RequestMapping("itemOrder")
     public ModelAndView itemOrder(){
-        ModelAndView mav = new ModelAndView("backstage/commons/itemOrder");
+        ModelAndView mav = new ModelAndView("backstage/order/itemOrder");
         return mav;
     }
 

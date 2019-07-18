@@ -14,7 +14,7 @@ public class PageUtils {
 	private int rows = 3;
 	/** 开始条数的下标 */
 	private int startPos;
-	
+
 	/** 排序列 */
 	private String sort;
 	/** 排序方式 */
