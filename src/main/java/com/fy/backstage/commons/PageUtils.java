@@ -19,7 +19,10 @@ public class PageUtils {
 	private String sort;
 	/** 排序方式 */
 	private String order;
-
+	//状态 1上架 、0未上架
+	private Integer grounding;
+	//状态 1上架 、0未上架
+	private Integer postId;
 	// 条件
 	private Integer userId; //用户编号
 	private String userName;
@@ -98,5 +101,21 @@ public class PageUtils {
 
 	public void setUserBir(Date userBir) {
 		this.userBir = userBir;
+	}
+
+	public Integer getGrounding() {
+		return grounding;
+	}
+
+	public void setGrounding(Integer grounding) {
+		this.grounding = grounding;
+	}
+
+	public Integer getPostId() {
+		return postId;
+	}
+
+	public void setPostId(Integer postId) {
+		this.postId = postId;
 	}
 }

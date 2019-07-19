@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,10 +53,10 @@ public class SpotController {
         DataGrid<Spot> spotselect = spotService.spotselect(page);
         return spotselect;
     }
+    @ResponseBody
     @RequestMapping("spotupdateftl")
-    public ModelAndView spotupdateftl(Spot spot){
-        ModelAndView modelAndView = new ModelAndView("/backstage/spot/addSpots");
-        modelAndView.addObject("spot",spot);
+    public ModelAndView spotupdateftl(){
+        ModelAndView modelAndView = new ModelAndView("backstage/spot/addSpots");
         return modelAndView;
     }
 

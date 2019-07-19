@@ -13,7 +13,6 @@
 <table id="dg"></table>
 <div id="pzx" style="width: initial;height: 500pt"></div>
 <script>
-    var s = null;
     $(function () {
         selelctlist();
         function selelctlist(){
@@ -30,7 +29,13 @@
                 columns:[[
                     {field:'spotsId',title:'旅游编号',width:50},
                     {field:'spotsName',title:'景点名称',width:50},
-                    {field:'spotsType',title:'园区类型',width:50},
+                    {field:'spotsType',title:'园区类型',width:50,formatter:function (value) {
+                            if (value==1){
+                                return "景区"
+                            } else {
+                                return "休闲"
+                            }
+                        }},
                     {field:'spotsPhone',title:'资讯电话',width:50},
                     {field:'spotsActivity',title:'景点活动',width:50},
                     {field:'spotsVenue',title:'集合地点',width:50},
@@ -40,8 +45,15 @@
                     {field:'spotsRepertory',title:'景点门票库存',width:50},
                     {field:'spotsOpenTime',title:'开放时间',width:50},
                     {field:'spotsPrice',title:'门票价格',width:50},
-                    {field:'spotsUpdate',title:'修改时间',width:50},
-                    {field:'spotsYn',title:'状态',width:50},
+                    {field:'spotsUpdate',title:'修改时间',width:50
+            //         {field:'spotsGrounding',title:'状态',width:50,formatter:function (value,row,index) {
+            //                 if (value==1){
+            //                     return "已上架"
+            //                 } else {
+            //                     return "未上架"
+            //                 }
+            // }
+                    },
                     {field:'staffId',title:'发布员工',width:50}
                 ]],
                 toolbar: [{
@@ -50,13 +62,20 @@
                     handler: function(){
                         s = $("#dg").datagrid('getSelected');
                         if (s==null){
-                            return alert("请选择要编辑的出租单！！");
+                            return alert("请选择要修改的景点数据！！");
                         }
+                        $("#rightcontent").empty();
+
                         $.ajax({
-                            type:"POST",
+                            type:"GET",
                             url:"/spotController/spotupdateftl",
-                            data:s,
-                            success:function () {
+                            data:{"Id":s.spotsId},
+                            dataType:"html",
+                            async:false,
+                            success:function (data) {
+                                $("#addSpotsId").attr("class","current-menuleft");
+                                $("#rightcontent").html(data);
+
 
                             },
                             error:function () {
@@ -85,7 +104,7 @@
 
                     }
                 },'-',{
-                    text:"删除景点",
+                    text:"下架并删除",
                     iconCls: 'icon-no',
                     handler: function(){
                         s =$("#dg").datagrid("getSelected");
@@ -97,25 +116,28 @@
                             url:"/spotController/spotdelete",
                             data:{"Id":s.spotsId},
                             dataType:"json",
-                            success:function () {
-
+                            success:function (data) {
+                                if (data==1){
+                                    return "已上架";
+                                } else {
+                                    return "未上架";
+                                }
                             }
                         });
                         $("#dg").datagrid('reload');
                     }
                 },'-',{
-                    text:"房源编号：<input type='text' id='likeId'/>"
+                    text:"景区编号：<input type='text' id='likeId'/> "
                 },'-',{
                     iconCls: 'icon-search',
                     text:"搜索",
                     handler: function(){
                         var likeId= $("#likeId").val();
                         $('#dg').datagrid('load',{
-                            userId: likeId
+                            postId: likeId
                         });
                     }
                 }]
-
             });
         }
     });

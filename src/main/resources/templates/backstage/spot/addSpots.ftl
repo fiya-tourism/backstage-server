@@ -117,12 +117,8 @@
             <td><input class="easyui-datetimebox" type="text" name="spotsGotime" data-options="required:true" /></td>
         </tr>
         <tr>
-            <td><label fot="name">状态:</label></td>
             <td>
-                <select id="cc" class="easyui-combobox" name="spotsYn" data-options="panelHeight:'auto'" >
-                    <option value="0">展示</option>
-                    <option value="1" selected>不展示</option>
-                </select>
+               <input type="hidden" name=""/>
                 <label for="name">景区类型:</label>
                 <select id="cc" class="easyui-combobox" name="spotsType"  data-options="panelHeight:'auto'">
                     <option value="0"selected>景区</option>
@@ -135,29 +131,29 @@
         </tr>
 
         <tr>
-           <td><input type="button" id="submitButto" onclick="submitt(2)" style="background-color: #4781B7;border-color: #4781b7;width:84pt;height:32pt;" value="发布景点"></td>
+           <td><input type="button" id="submitButto"  style="background-color: #4781B7;border-color: #4781b7;width:84pt;height:32pt;" value="发布景点"></td>
             <td><label for="name">景点介绍:</label></td>
         </tr>
-
-
 </table>
 <div id="div1" style="background-color: #BEDED4;height: auto">
-
 </div>
 </form>
 <script type="text/javascript" src="/commons/wangEditor.min.js"></script>
 <script type="text/javascript">
 
-    $(function (spot) {
-        if (spot.spotsId !=null){
-            $("#submitButto").attr(onclick,"submitt(1)",value,"保存修改");
-            //$("#ff").form("load",s);
+ $(function () {
+
+        var datas ;
+        if (s!=null){
+            $("#submitButto").attr({"value":"保存修改"});
             $.ajax({
                 type:"GET",
                 url:"/spotController/spotById",
                 data:{"Id":s.spotsId},
                 async:false,
-                success:function (date) {
+                success:function (data) {
+                    s = null;
+                    datas = data;
                     $("#ff").form("load",data);
                 },
                 error:function () {
@@ -165,32 +161,51 @@
                 }
             })
         }
-    })
 
-    function submitt(str){
+    $("#submitButto").click(function () {
         $.ajax({
             type:"POST",
             url:"/spotController/spotinsert",
             data:$("#ff").serialize(),
             success:function (data) {
-                if (str==2){
+                $("#rightcontent").empty();
+                var str = $("#submitButto").val;
+                if (str=="发布景点"){
                     if (1==data){
                         alert("发布成功");
-                        location.href="javascript:openFtl('/skip/spotsList')
+                        $.ajax({
+                            type:"GET",
+                            url:"/skip/spotsList",
+                            dataType:"html",
+                            async:false,
+                            success:function (data) {
+                                $("#spotsListId").attr("class","current-menuleft");
+                                $("#rightcontent").html(data);
+                            }
+                        })
                     } else {
                         alert("发布失败");
                     }
                 }else {
                     if (1==data){
                         alert("保存成功");
+                        $.ajax({
+                            type: "GET",
+                            url: "/skip/spotsList",
+                            dataType: "html",
+                            async: false,
+                            success: function (data) {
+                                $("#spotsListId").attr("class", "current-menuleft");
+                                $("#rightcontent").html(data);
+                            }
+                        })
                     } else {
                         alert("保存失败");
                     }
                 }
-
             }
         })
-    }
+    })
 
     var E = window.wangEditor;
     var editor = new E('#div1');
@@ -252,22 +267,31 @@
             content: ['😀', '😃', '😄', '😁', '😆']
         }
     ]
+     editor.customConfig.onchange = function (html) {
+         // 监控变化，同步更新到 textarea
+         $text1.val(html)
+     }
     //初始化
     editor.create();
-    // 初始化 textarea 的值
-    $text1.val(editor.txt.html());
-    editor.customConfig.onchange = function (html) {
-        // 监控变化，同步更新到 textarea
-        $text1.val(html)
-    };
-    if ($text1.length!=1){
-            // 读取 html
-        editor.txt.html($text1);
+    if (datas!=null){
+        // 初始化 textarea 的值
+        $text1.val(editor.txt.html());
+        $text1.val(datas.conentisert);
+        editor.txt.html($text1.val());
     }
+
+     // editor.customConfig.onchange = function (html) {
+     //     // 监控变化，同步更新到 textarea
+     //     console.log(html);
+     //     // 读取 html
+     //     editor.txt.html($text1);
+     //     $text1.val(html);
+     // };
+
 
 
     $("#submitButto").mousedown(function(){
-        $("submitButto").attr(style,"background-color: #8baa4a;border-color: #8baa4a;width:84pt;height:32pt;");
+        $("submitButto").attr({"style":"background-color: #8baa4a;border-color: #8baa4a;width:84pt;height:32pt;"});
     });
 
     $("#submitButto").mouseover(function(){
@@ -276,6 +300,8 @@
     $("#submitButto").mouseout(function(){
         $("#submitButto").css("background-color","#4781B7");
     });
+
+   })
 </script>
 </body>
 </html>

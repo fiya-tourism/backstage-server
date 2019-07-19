@@ -39,8 +39,8 @@
             <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旅游管理</dt>
             <dd>
                 <ul class="clearfix">
-                    <li><a href="javascript:openFtl('/skip/addSpots');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点发布</a></li>
-                    <li><a href="javascript:openFtl('/skip/spotsList');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点列表</a></li>
+                    <li><a id="addSpotsId" href="javascript:openFtl('/skip/addSpots');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点发布</a></li>
+                    <li><a id="spotsListId" href="javascript:openFtl('/skip/spotsList');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点列表</a></li>
                     <li><a href="javascript:openFtl('/skip/spotsComment');">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;景点评价</a></li>
                 </ul>
             </dd>
@@ -207,6 +207,7 @@
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="/public/js/banner.js"></script>
 <script type="text/javascript">
+    var s = null;
     //导航经过改变宽度和颜色
     $(".headnav li").click(function(){
         var index = $(this).index();

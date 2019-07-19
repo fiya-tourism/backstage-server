@@ -1,6 +1,7 @@
 package com.fy.backstage.spot.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import java.io.Serializable;
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,7 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @Date: 2019/7/16 15:20
  * @Version: 1.0
  */
-public class Spot {
+public class Spot implements Serializable {
 
     //旅游主键
     private Integer spotsId;
@@ -35,6 +36,8 @@ public class Spot {
     private Double spotsPrice;
     //资讯电话
     private String spotsPhone;
+    //景区状态  1 上架/0 未上架
+    private Integer spotsGrounding;
     //开放时间
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" ,timezone = "GTM")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
