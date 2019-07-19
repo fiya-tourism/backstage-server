@@ -20,7 +20,7 @@ public class ItemAllVo implements Serializable {
     private String itemName;
     //商品标题 (提供seo优化用)
     private String itemTitle;
-    //商品类型   1.农产品 2.水果 3.工艺品
+    //商品类型   1.农产品 2.水果 3.工艺品 4.副产品
     private Integer itemType;
     //商品介绍 (存放mongodb唯一标识)
     private String itemIntroduceId;
@@ -39,6 +39,8 @@ public class ItemAllVo implements Serializable {
     //状态码   0.显示   1.隐藏
     private Integer itemYn;
 //商品详情 (sku)
+    //商品详情主键
+    private Integer iskuId;
     //商品销售价格
     private Double iskuSalePrice;
     //商品库存
@@ -51,14 +53,23 @@ public class ItemAllVo implements Serializable {
     private String attrAttrValue;
     private String attrAttrValue2;
 //商品图片
-    private String picPath;
+    private String pictureUrl;
 
-    public String getPicPath() {
-        return picPath;
+
+    public Integer getIskuId() {
+        return iskuId;
     }
 
-    public void setPicPath(String picPath) {
-        this.picPath = picPath;
+    public void setIskuId(Integer iskuId) {
+        this.iskuId = iskuId;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 
     public String getAttrAttrKey2() {

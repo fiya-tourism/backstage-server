@@ -55,7 +55,7 @@
 
     //上传成功后要执行的回调函数
     uploader.on('uploadSuccess',function(file,data){
-        $("#imgUrls").html($("#imgUrls").html()+'<input type="hidden" name="picPath" value="'+data.url+'"/>');
+        $("#imgUrls").html($("#imgUrls").html()+'<input type="hidden" name="pictureUrl" value="'+data.url+'"/>');
     })
 
     // 文件上传失败，显示上传出错。

@@ -38,6 +38,7 @@
                     <option value="1">农产品</option>
                     <option value="2">水果</option>
                     <option value="3">工艺品</option>
+                    <option value="4">副产品</option>
                 </select>
             </td>
         </tr>
@@ -58,7 +59,7 @@
                 <table>
                     <tr>
                         <td>属性名</td>
-                        <td>属性值(最少选填个)</td>
+                        <td>属性值(若选了前面的属性最少选两个值)</td>
                     </tr>
                     <tr>
                         <td><input name="attrAttrKey" size="5px"></td>
@@ -89,7 +90,7 @@
                 <div id="uploader-demo">
                     <img id="img" name="imgs">
                     <div id="fileList" class="uploader-list"></div><!--用来回显图片的div-->
-                    <div id="filePicker" style="clear: left">选择图片</div>
+                    <div id="filePicker">选择图片</div>
                     <div id="imgUrls"></div>
                 </div>
             </td>
@@ -97,9 +98,8 @@
         <tr>
             <td align="right" height="">商品介绍:</td>
             <td colspan="5">
-                <div id="editor">
-                    <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
-                </div>
+                <div id="div1"></div>
+                <textarea id="text1" name="itemIntroduceValue" style="width:100%; height:200px;display: none"></textarea>
             </td>
         </tr>
         <tr>
@@ -146,13 +146,20 @@
     });
 
 </script>
+
 <#--富文本编辑器-->
 <script type="text/javascript" src="/commons/wangEditor.min.js"></script>
 <script type="text/javascript">
     var E = window.wangEditor
-    var editor = new E('#editor')
-    // 或者 var editor = new E( document.getElementById('editor') )
+    var editor = new E('#div1')
+    var $text1 = $('#text1')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+    }
     editor.create()
+    // 初始化 textarea 的值
+    $text1.val(editor.txt.html())
 </script>
 
 <#include "upload.ftl">
