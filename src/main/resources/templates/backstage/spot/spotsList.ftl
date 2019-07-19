@@ -52,25 +52,36 @@
                         if (s==null){
                             return alert("请选择要编辑的出租单！！");
                         }
-                        $('#pzx').dialog({
-                            title: '修改出景点',
-                            width: 470,
-                            height: 480,
-                            href: '/spotController/spotupdateftl',
-                            modal: true,
-                            buttons:[{
-                                text:'保存',
-                                handler:function(){
-                                    updates();
-                                    $("#dg").datagrid('reload');
-                                }
-                            },{
-                                text:'关闭',
-                                handler:function(){
-                                    $("#xuzhen").dialog('close');
-                                }
-                            }]
-                        });
+                        $.ajax({
+                            type:"POST",
+                            url:"/spotController/spotupdateftl",
+                            data:s,
+                            success:function () {
+
+                            },
+                            error:function () {
+
+                            }
+                        })
+                        // $('#pzx').dialog({
+                        //     title: '修改出景点',
+                        //     width: 470,
+                        //     height: 480,
+                        //     href: '/spotController/spotupdateftl',
+                        //     modal: true,
+                        //     buttons:[{
+                        //         text:'保存',
+                        //         handler:function(){
+                        //             updates();
+                        //             $("#dg").datagrid('reload');
+                        //         }
+                        //     },{
+                        //         text:'关闭',
+                        //         handler:function(){
+                        //             $("#xuzhen").dialog('close');
+                        //         }
+                        //     }]
+                        // });
 
                     }
                 },'-',{
@@ -93,15 +104,14 @@
                         $("#dg").datagrid('reload');
                     }
                 },'-',{
-                    text:"房源编号：<input type='text' id='likeId'/>",
-
+                    text:"房源编号：<input type='text' id='likeId'/>"
                 },'-',{
                     iconCls: 'icon-search',
                     text:"搜索",
                     handler: function(){
                         var likeId= $("#likeId").val();
                         $('#dg').datagrid('load',{
-                            likeId: likeId
+                            userId: likeId
                         });
                     }
                 }]
