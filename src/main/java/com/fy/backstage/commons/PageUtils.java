@@ -14,18 +14,27 @@ public class PageUtils {
 	private int rows = 3;
 	/** 开始条数的下标 */
 	private int startPos;
-	
+
 	/** 排序列 */
 	private String sort;
 	/** 排序方式 */
 	private String order;
 
 	// 条件
-	private Integer userId; //房源编号
+	private Integer userId; //用户编号
 	private String userName;
 	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date userBir;  //结束时间
+	private Date userBir;  //生日
+	private String orderConId;  //订单编号
+
+	public String getOrderConId() {
+		return orderConId;
+	}
+
+	public void setOrderConId(String orderConId) {
+		this.orderConId = orderConId;
+	}
 
 	public int getPage() {
 		return page;
