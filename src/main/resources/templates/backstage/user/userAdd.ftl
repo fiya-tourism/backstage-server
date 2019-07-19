@@ -11,29 +11,66 @@
              <input type="radio" value="2" name="userSex"/>女<br>
         年龄:<input name="userAge" class="easyui-validatebox" data-options=""/><br>
        用户手机号:<input class="easyui-validatebox" type="text" name="userPhone" data-options=""/><br>
+       身份证号:<input class="easyui-validatebox" type="text" name="userIdentity" data-options=""/><br>
         居住城市:<input name="userDwell" class="easyui-validatebox" data-options=""/><br>
         出生日期:<input name="userBir" class="easyui-datebox" data-options=""/><br>
         邮箱:<input name="userEmail" class="easyui-validatebox" data-options=""/><br>
         个性签名:<input name="userSignature" class="easyui-validatebox" data-options=""/><br>
-        密码:<input name="userPassword" class="easyui-validatebox" data-options=""/><br>
+      <#--  密码:<input name="userPassword" class="easyui-validatebox" data-options=""/><br> -->
 
-            <input type="hidden" name="userPhoto" id="hiddenId">
+    <#--    <input type="hidden" name="userPhoto" id="hiddenId"/>
+            <div id="uploader-demo">
+                <!--用来存放item&ndash;&gt;
+                <div id="fileList" class="uploader-list"></div>
+                <div id="filePicker">选择图片</div>
+            </div>-->
     </form>
-
-</body><#--</center>
-
-<center>
-    <div id="uploader-demo">
-        <!--用来存放item&ndash;&gt;
-        <div id="fileList" class="uploader-list"></div>
-        <div id="filePicker">选择图片</div>
-    </div>
-
 </center>
 
+<#--<script type="text/javascript">
+    $(function(){
+        $('#lease-form').form({
+            url: '/lease/add',
+            onSubmit: function(){
+                var isValid = $(this).form('validate');
+                if (!isValid){
+                    // 如果表单是无效的则隐藏进度条
+                    $.messager.progress('close');
+                }
+                // 返回false终止表单提交
+                return isValid;
+            },
+            success: function(msg){
+                // 如果提交成功则隐藏进度条
+                $.messager.progress('close');
 
-<script type="text/javascript">
-    /初始化Web Uploader
+                $.messager.show({
+                    title:'消息',
+                    msg:msg,
+                    timeout:2000,
+                    showType:'slide'
+                });
+                //重置form
+                $('#lease-form').form('reset');
+                //刷新列表数据
+                $("#wu").datagrid("reload");
+            }
+        });
+    });
+
+    function letFun(){
+        var vals = $("input[name='letId']").val();
+        console.log(1)
+        $.get('${request.contextPath}/lease/sendSelectLetId',{"letId":vals},function (msg) {
+            if(msg == "√"){
+                $("#letSpan").html("<font color='green'>"+msg+"</font>");
+            }else{
+                $("#letSpan").html("<font color='red'>"+msg+"</font>");
+            }
+        },'html');
+    }
+
+    //初始化Web Uploader
     var uploader = WebUploader.create({
 
         //设置文件上传域的name
@@ -43,10 +80,10 @@
         auto: true,
 
         // swf文件路径
-        swf: '<%=request.getContextPath()%>/webuploader/Uploader.swf',
+        swf: '/commons/webuploader-0.1.5/Uploader.swf',
 
         // 文件接收服务端。
-        server: '<%=request.getContextPath()%>/travel/uploadFileInfo.do',
+        server: '/lease/uploadFileInfo',
 
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
@@ -125,6 +162,6 @@
     uploader.on( 'uploadComplete', function( file ) {
         $( '#'+file.id ).find('.progress').remove();
     });
-
 </script>-->
+</body>
 </html>

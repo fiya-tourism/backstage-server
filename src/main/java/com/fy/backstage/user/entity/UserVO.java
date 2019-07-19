@@ -57,6 +57,14 @@ public class UserVO {
         this.userId = userId;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public Integer getUserSex() {
         return userSex;
     }
@@ -78,7 +86,7 @@ public class UserVO {
     }
 
     public void setUserPhoto(String userPhoto) {
-        this.userPhoto = userPhoto == null ? null : userPhoto.trim();
+        this.userPhoto = userPhoto;
     }
 
     public String getUserPhone() {
@@ -86,7 +94,7 @@ public class UserVO {
     }
 
     public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone == null ? null : userPhone.trim();
+        this.userPhone = userPhone;
     }
 
     public String getUserIdentity() {
@@ -94,7 +102,7 @@ public class UserVO {
     }
 
     public void setUserIdentity(String userIdentity) {
-        this.userIdentity = userIdentity == null ? null : userIdentity.trim();
+        this.userIdentity = userIdentity;
     }
 
     public Date getUserBir() {
@@ -110,7 +118,7 @@ public class UserVO {
     }
 
     public void setUserDwell(String userDwell) {
-        this.userDwell = userDwell == null ? null : userDwell.trim();
+        this.userDwell = userDwell;
     }
 
     public String getUserEmail() {
@@ -118,7 +126,7 @@ public class UserVO {
     }
 
     public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail == null ? null : userEmail.trim();
+        this.userEmail = userEmail;
     }
 
     public String getUserSignature() {
@@ -126,7 +134,7 @@ public class UserVO {
     }
 
     public void setUserSignature(String userSignature) {
-        this.userSignature = userSignature == null ? null : userSignature.trim();
+        this.userSignature = userSignature;
     }
 
     public Integer getUserCollect() {
@@ -142,7 +150,7 @@ public class UserVO {
     }
 
     public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword == null ? null : userPassword.trim();
+        this.userPassword = userPassword;
     }
 
     public Date getComCreate() {
@@ -167,13 +175,5 @@ public class UserVO {
 
     public void setComYn(Integer comYn) {
         this.comYn = comYn;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 }
