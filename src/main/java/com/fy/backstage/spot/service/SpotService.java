@@ -32,7 +32,7 @@ public interface SpotService {
 
     @ResponseBody
     @RequestMapping(value = "spotsController/insertSopt",method = RequestMethod.POST)
-    Integer spotinsert(@RequestBody Spot spot);
+    Integer spotinsert(@RequestParam("spot") String spot);
 
     @ResponseBody
     @RequestMapping(value = "spotsController/SoptIdSelect",method = RequestMethod.GET)
