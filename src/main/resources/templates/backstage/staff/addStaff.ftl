@@ -13,12 +13,12 @@
         </div>
         <div>
             <label for="staffSex">性别</label>
-            <input class="easyui-numberspinner" type="radio" name="staffSex" value="1"/>男
-            <input class="easyui-numberspinner" type="radio" name="staffSex" value="2"/>女
+            <input type="radio" name="staffSex" value="1"/>男
+            <input type="radio" name="staffSex" value="2"/>女
         </div>
         <div>
             <label for="staffPhone">联系方式</label>
-            <input class="easyui-numberspinner" type="text" name="staffPhone"/>
+            <input type="text" name="staffPhone"/>
         </div>
         <div>
             <label for="staffDate">加入时间</label>

@@ -143,12 +143,21 @@ public class Skip {
     }
 
     /**
-     * 员工列表
+     * 管理员列表
      * @return
      */
     @RequestMapping("staffList")
     public ModelAndView staffList(){
         ModelAndView mav = new ModelAndView("backstage/staff/staffList1");
+        return mav;
+    }
+    /**
+     * 员工列表
+     * @return
+     */
+    @RequestMapping("staffList2")
+    public ModelAndView staffList2(){
+        ModelAndView mav = new ModelAndView("backstage/staff/staffList2");
         return mav;
     }
     /**
@@ -165,6 +174,11 @@ public class Skip {
         ModelAndView mav = new ModelAndView("backstage/commons/content");
         return mav;
     }
-
+    //去fy后台页面
+    @RequestMapping("toStaffMain2")
+    public ModelAndView toStaffMain2(){
+        ModelAndView mav = new ModelAndView("backstage/commons/content2");
+        return mav;
+    }
 
 }

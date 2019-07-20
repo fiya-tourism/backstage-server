@@ -61,7 +61,6 @@
                 data:{staffName:name,staffPass:pass},
                 dataType:"json",
                 success:function(data) {
-                    alert(data)
                     if (data.code == 200) {
                         //跳转到管理员页面
                         location.href = "/skip/toStaffMain";
@@ -71,9 +70,6 @@
                     }else{
                         $("#span").html("<font color='red'>"+data.info+"</font>");
                     }
-                },
-                error: function () {
-                    alert("错误");
                 }
 
             })
