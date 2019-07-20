@@ -17,7 +17,7 @@ public class DefaultView extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         // index 在 templates 文件夹下
-        registry.addViewController("/").setViewName("backstage/commons/content");
+        registry.addViewController("/").setViewName("backstage/staff/staffLogin");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
         super.addViewControllers(registry);
     }

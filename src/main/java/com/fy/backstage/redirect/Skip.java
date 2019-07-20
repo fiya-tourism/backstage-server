@@ -148,7 +148,23 @@ public class Skip {
      */
     @RequestMapping("staffList")
     public ModelAndView staffList(){
-        ModelAndView mav = new ModelAndView("backstage/staff/staffList");
+        ModelAndView mav = new ModelAndView("backstage/staff/staffList1");
         return mav;
     }
+    /**
+     * 去员工管理平台登陆页面
+     */
+    @RequestMapping("toStaffLogin")
+    public ModelAndView toStaffLogin() {
+        ModelAndView mav = new ModelAndView("backstage/staff/staffLogin");
+        return mav;
+    }
+    //去fy后台页面
+    @RequestMapping("toStaffMain")
+    public ModelAndView toStaffMain(){
+        ModelAndView mav = new ModelAndView("backstage/commons/content");
+        return mav;
+    }
+
+
 }
