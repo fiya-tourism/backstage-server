@@ -50,7 +50,9 @@ public class SpotController {
     @ResponseBody
     @RequestMapping("spotselect")
     public DataGrid<Spot> spotselect(PageUtils page){
-        DataGrid<Spot> spotselect = spotService.spotselect(page);
+        Gson gson = new Gson();
+        String pages = gson.toJson(page, PageUtils.class);
+        DataGrid<Spot> spotselect = spotService.spotselect(pages);
         return spotselect;
     }
     @ResponseBody

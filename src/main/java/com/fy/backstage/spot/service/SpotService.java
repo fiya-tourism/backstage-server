@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public interface SpotService {
 
     @ResponseBody
-    @RequestMapping(value = "spotsController/soptSelect",method = RequestMethod.POST)
-    DataGrid<Spot> spotselect(@RequestBody PageUtils page);
+    @RequestMapping(value = "spotsController/soptSelect",method = RequestMethod.GET)
+    DataGrid<Spot> spotselect(@RequestParam("page") String page);
 
     @ResponseBody
     @RequestMapping(value = "spotsController/deleteSopt",method = RequestMethod.POST)
