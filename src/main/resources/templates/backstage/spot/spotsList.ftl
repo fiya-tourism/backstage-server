@@ -60,8 +60,8 @@
                     text:"修改景点",
                     iconCls: 'icon-edit',
                     handler: function(){
-                        s = $("#dg").datagrid('getSelected');
-                        if (s==null){
+                        spot = $("#dg").datagrid('getSelected');
+                        if (spot==null){
                             return alert("请选择要修改的景点数据！！");
                         }
                         $("#rightcontent").empty();
@@ -69,7 +69,7 @@
                         $.ajax({
                             type:"GET",
                             url:"/spotController/spotupdateftl",
-                            data:{"Id":s.spotsId},
+                            data:{"Id":spot.spotsId},
                             dataType:"html",
                             async:false,
                             success:function (data) {
@@ -107,14 +107,14 @@
                     text:"下架并删除",
                     iconCls: 'icon-no',
                     handler: function(){
-                        s =$("#dg").datagrid("getSelected");
-                        if (s==null){
+                        spot =$("#dg").datagrid("getSelected");
+                        if (spot==null){
                             return alert("请选择要删除出的景点数据！！");
                         }
                         $.ajax({
                             type:"GET",
                             url:"/spotController/spotdelete",
-                            data:{"Id":s.spotsId},
+                            data:{"Id":spot.spotsId},
                             dataType:"json",
                             success:function (data) {
                                 if (data==1){

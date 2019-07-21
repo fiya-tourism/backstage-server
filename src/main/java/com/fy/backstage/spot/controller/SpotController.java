@@ -2,7 +2,9 @@ package com.fy.backstage.spot.controller;
 
 import com.fy.backstage.commons.DataGrid;
 import com.fy.backstage.commons.PageUtils;
+import com.fy.backstage.commons.UpFile;
 import com.fy.backstage.spot.entity.Spot;
+import com.fy.backstage.spot.entity.Spotspicture;
 import com.fy.backstage.spot.service.SpotService;
 import com.google.gson.Gson;
 import java.io.File;
@@ -73,10 +75,12 @@ public class SpotController {
     }
     @ResponseBody
     @RequestMapping(value = "spotinsert",method = RequestMethod.POST)
-    public Integer spotinsert(Spot spot){
+    public Integer spotinsert(Spot spot, Spotspicture spotspicture){
+
         Gson gson = new Gson();
         String Spotostr = gson.toJson(spot, Spot.class);
-        return spotService.spotinsert(Spotostr);
+        String spotspictures = gson.toJson(spotspicture, Spotspicture.class);
+        return spotService.spotinsert(Spotostr,spotspictures);
     }
     @ResponseBody
     @PostMapping(value = "upload")
@@ -157,10 +161,13 @@ public class SpotController {
 //            e.printStackTrace();
 //            return  null;
 //        }
-
-
     }
 
+    @ResponseBody
+    @RequestMapping("uploadImg")
+    public String uploadImg(MultipartFile upfile,HttpServletRequest request){
+        return UpFile.upFile(upfile,request,FOLDER_NAME);
+    }
 
 
 
