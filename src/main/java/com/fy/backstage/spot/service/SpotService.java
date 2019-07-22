@@ -32,7 +32,8 @@ public interface SpotService {
 
     @ResponseBody
     @RequestMapping(value = "spotsController/insertSopt",method = RequestMethod.POST)
-    Integer spotinsert(@RequestParam("spot") String spot);
+    Integer spotinsert(@RequestParam("Spotostr") String Spotostr,
+                       @RequestParam("spotspictures") String spotspictures);
 
     @ResponseBody
     @RequestMapping(value = "spotsController/SoptIdSelect",method = RequestMethod.GET)

@@ -207,7 +207,7 @@
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="/public/js/banner.js"></script>
 <script type="text/javascript">
-    var s = null;
+    var spot = null;
     //导航经过改变宽度和颜色
     $(".headnav li").click(function(){
         var index = $(this).index();

@@ -44,7 +44,7 @@ public class Spot implements Serializable {
     private Date spotsOpenTime;
     //景点门票库存
     private Integer spotsRepertory;
-    //景点活动
+    //景点简介
     private String spotsActivity;
     //集合地点
     private String spotsVenue;
