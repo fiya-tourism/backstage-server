@@ -4,6 +4,7 @@ import com.fy.backstage.commons.DataGrid;
 import com.fy.backstage.commons.PageUtils;
 import com.fy.backstage.commons.UpFile;
 import com.fy.backstage.spot.entity.Spot;
+import com.fy.backstage.spot.entity.SpotVO;
 import com.fy.backstage.spot.entity.Spotspicture;
 import com.fy.backstage.spot.service.SpotService;
 import com.google.gson.Gson;
@@ -45,16 +46,16 @@ public class SpotController {
 
     @ResponseBody
     @RequestMapping("spotById")
-    public Spot spotById(Integer Id){
+    public SpotVO spotById(Integer Id){
         return spotService.spotById(Id);
     }
 
     @ResponseBody
     @RequestMapping("spotselect")
-    public DataGrid<Spot> spotselect(PageUtils page){
+    public DataGrid<SpotVO> spotselect(PageUtils page){
         Gson gson = new Gson();
         String pages = gson.toJson(page, PageUtils.class);
-        DataGrid<Spot> spotselect = spotService.spotselect(pages);
+        DataGrid<SpotVO> spotselect = spotService.spotselect(pages);
         return spotselect;
     }
     @ResponseBody

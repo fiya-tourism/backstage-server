@@ -82,7 +82,9 @@
 
 <script type="text/javascript" src="/commons/wangEditor.min.js"></script>
 <script type="text/javascript">
-
+    $(function () {
+        spot = null;
+    })
     var i= 0;
     <#include  "mongodb.ftl"/>
 

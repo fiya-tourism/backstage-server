@@ -88,7 +88,7 @@ var datas ;
     // 将图片大小限制为 3M
     editor.customConfig.uploadImgMaxSize = 5 * 1024 * 1024;
     // 限制一次最多上传 5 张图片
-    editor.customConfig.uploadImgMaxLength = 10;
+    editor.customConfig.uploadImgMaxLength = 2;
     editor.customConfig.uploadImgHooks = {
         customInsert: function (insertImg, result, editor) {
             var url =result.data;//获取后台返回的url

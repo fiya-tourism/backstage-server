@@ -3,6 +3,7 @@ package com.fy.backstage.spot.service;
 import com.fy.backstage.commons.DataGrid;
 import com.fy.backstage.commons.PageUtils;
 import com.fy.backstage.spot.entity.Spot;
+import com.fy.backstage.spot.entity.SpotVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ public interface SpotService {
 
     @ResponseBody
     @RequestMapping(value = "spotsController/soptSelect",method = RequestMethod.GET)
-    DataGrid<Spot> spotselect(@RequestParam("page") String page);
+    DataGrid<SpotVO> spotselect(@RequestParam("page") String page);
 
     @ResponseBody
     @RequestMapping(value = "spotsController/deleteSopt",method = RequestMethod.POST)
@@ -37,5 +38,5 @@ public interface SpotService {
 
     @ResponseBody
     @RequestMapping(value = "spotsController/SoptIdSelect",method = RequestMethod.GET)
-    Spot spotById(@RequestParam("id") Integer id);
+    SpotVO spotById(@RequestParam("id") Integer id);
 }
