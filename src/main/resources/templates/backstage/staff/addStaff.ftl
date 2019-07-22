@@ -26,14 +26,13 @@
         </div>
     </form>
 </center>
-
 </body>
 <#--<script>-->
-    <#--$(function () {-->
-        <#--console.log(rowFirst);-->
-        <#--if(rowFirst != null && rowFirst != 'undefined'){-->
-            <#--$('#add').form('load','/staff/addStaff?staffId='+rowFirst.staffId);-->
-        <#--}-->
-    <#--})-->
+<#--$(function () {-->
+<#--console.log(rowFirst);-->
+<#--if(rowFirst != null && rowFirst != 'undefined'){-->
+<#--$('#add').form('load','/staff/addStaff?staffId='+rowFirst.staffId);-->
+<#--}-->
+<#--})-->
 <#--</script>-->
 </html>

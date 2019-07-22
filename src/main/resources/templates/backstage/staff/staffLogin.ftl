@@ -37,7 +37,7 @@
             </tr>
             <tr><td>密码：</td>
                 <td>
-                <input type="text" name="staffPass"/>
+                    <input type="text" name="staffPass"/>
                 </td>
             </tr>
             <tr><td style="text-align:right"><input type="button" value="登录" onclick="loginAbc()"/></td>
