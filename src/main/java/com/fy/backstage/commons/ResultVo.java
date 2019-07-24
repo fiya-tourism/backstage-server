@@ -36,4 +36,18 @@ public class ResultVo {
 	public void setSuccess(Boolean success) {
 		this.success = success;
 	}
+
+	public ResultVo() {
+	}
+
+	public ResultVo(Object data) {
+		this.data = data;
+	}
+
+	public ResultVo(Boolean success, String msg, Object data, Integer code) {
+		this.success = success;
+		this.msg = msg;
+		this.data = data;
+		this.code = code;
+	}
 }

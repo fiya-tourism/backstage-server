@@ -8,6 +8,7 @@ import com.fy.backstage.item.domain.ItemAllVo;
 import com.fy.backstage.item.domain.ItemReShow;
 import com.fy.backstage.item.domain.ItemSpu;
 import com.fy.backstage.item.domain.ItemSpuSearchVo;
+import com.fy.backstage.item.domain.Resultv;
 import com.fy.backstage.item.feigh.ItemServiceFeigh;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,18 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -115,5 +123,60 @@ public class ItemController {
         return map;
     }
 
+    /**
+     * 文件上传
+     * @param
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping(value = "upload1")
+    public Map<String,Object> upload2 (HttpServletRequest request,@RequestParam(value="myFileName") MultipartFile file) throws IOException {
+        //MultipartFile  转换成文件
+        String fileName=file.getOriginalFilename();
+        //获取到项目路径
+//        String savePath = new File("").getCanonicalPath();
+        String savePath = request.getServletContext().getRealPath("/");
+        if(file.getSize()>0) {
+            try {
+                String path = SaveFileFromInputStream(file.getInputStream(), savePath, fileName);
+                Map<String,Object> map = new HashMap<String,Object>();
+                map.put("imgUrl",path);
+                return map;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
+
+    /**保存的
+     * @param stream
+     * @param savePath
+     * @param filename
+     * @return
+     * @throws IOException
+     */
+    public String SaveFileFromInputStream(InputStream stream, String savePath, String filename) throws IOException {
+        //初始化日期格式
+        SimpleDateFormat sd = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+        //以当前日期作加下划线加旧的文件名作为上传文件保存的名称
+        String newFileName = sd.format(new Date()) + "_" + filename;
+        String savePathAndFileName = savePath + "/"+ newFileName;
+        FileOutputStream fs=new FileOutputStream(savePathAndFileName);
+        byte[] buffer =new byte[1024*1024];
+        int bytesum = 0;
+        int byteread = 0;
+        while ((byteread=stream.read(buffer))!=-1)
+        {
+            bytesum+=byteread;
+            fs.write(buffer,0,byteread);
+            fs.flush();
+        }
+        fs.close();
+        stream.close();
+        return savePathAndFileName;
+    }
 
 }

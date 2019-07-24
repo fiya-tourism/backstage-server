@@ -1,6 +1,6 @@
 <form id="updateItemForm">
-    <input name="itemId" type="text">
-    <input name="iskuId" type="text">
+    <input name="itemId" type="hidden">
+    <input name="iskuId" type="hidden">
     <table>
         <tr>
             <td align="right">商品名称:</td>
